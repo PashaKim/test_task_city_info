@@ -1,0 +1,32 @@
+[
+  {
+    "model": "main.country",
+    "pk": 1,
+    "fields": {
+      "name": "Ukraine",
+      "iso2_code": "UA",
+      "iso3_code": "UKR",
+      "phone_code": "380",
+      "population": "45 415 596",
+      "area_km2": "603 700",
+      "currency": 1,
+      "created_at": "2020-11-17T19:41:46.306Z",
+      "updated_at": "2020-11-17T19:41:46.306Z"
+    }
+  },
+  {
+    "model": "main.country",
+    "pk": 2,
+    "fields": {
+      "name": "Austria",
+      "iso2_code": "AT",
+      "iso3_code": "AUT",
+      "phone_code": "43",
+      "population": "8 205 000",
+      "area_km2": "83 858",
+      "currency": 2,
+      "created_at": "2020-11-17T19:51:49.127Z",
+      "updated_at": "2020-11-17T19:51:49.127Z"
+    }
+  }
+]
