@@ -2,7 +2,7 @@ from django.urls import include, path
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
 
-from .views import CurrencyViewSet, CountryViewSet, CityViewSet
+from .views import CurrencyViewSet, CountryViewSet, CityViewSet, CityInfoAPIView
 
 router = routers.DefaultRouter()
 
@@ -13,6 +13,7 @@ router.register('city', CityViewSet, base_name='city')
 schema_view = get_schema_view()
 
 urlpatterns = [
+    path('city_info/', CityInfoAPIView.as_view()),
     path('', include(router.urls)),
     path('', schema_view),
 ]

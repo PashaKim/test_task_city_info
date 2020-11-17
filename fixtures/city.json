@@ -1,0 +1,26 @@
+[
+  {
+    "model": "main.city",
+    "pk": 1,
+    "fields": {
+      "name": "Kyiv",
+      "time_zone_utc": "UTC+2(EET), UTC+3(EEST)",
+      "density_by_km2": 3.299,
+      "country": 1,
+      "created_at": "2020-11-17T19:47:55.430Z",
+      "updated_at": "2020-11-17T19:47:55.430Z"
+    }
+  },
+  {
+    "model": "main.city",
+    "pk": 2,
+    "fields": {
+      "name": "Vienna",
+      "time_zone_utc": "UTC+1 (CET) UTC+2 (CEST)",
+      "density_by_km2": 4.326,
+      "country": 2,
+      "created_at": "2020-11-17T19:54:00.422Z",
+      "updated_at": "2020-11-17T19:54:00.422Z"
+    }
+  }
+]
