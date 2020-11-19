@@ -19,6 +19,12 @@ class Command(BaseCommand):
         parser.add_argument('-f', '--file', type=str)  # files
         parser.add_argument('-n', '--city_names', nargs='+', type=str)  # Kyiv, Vienna
 
+    def get_formated_names(self, city_names_l):
+        city_names_l = (' '.join(city_names_l)).split(',')  # 'Tel', 'Aviv' to 'Tel Aviv'
+        city_names_l = [popout(name.title(), 0) if name[0] == ' ' else name.title() for name in
+                        city_names_l]  # for remove additional space
+        return city_names_l
+
     def get_str_city_row(self, city_info):
         return f"\n{city_info['name']}\n-------------\nCountry: ​ {city_info['country__name']}" \
                f"\nCurrency: {city_info['country__currency__code']}\n-------------"
@@ -47,14 +53,8 @@ class Command(BaseCommand):
     def get_city_info_from_file(self, file_name):
         with open(f'{settings.BASE_DIR}/{file_name}', 'r') as file:
             city_names = file.readlines()  # ['Vienna\n', 'Kiev\n', 'New York']
-        city_names = [name.replace('\n', '') for name in city_names]  # remove \n
+        city_names = [name.replace('\n', '').title() for name in city_names]  # remove \n
         return self.get_city_info_from_name(city_names)
-
-    def get_formated_names(self, city_names_l):
-        city_names_l = [city.capitalize() for city in city_names_l]  # format name in one type
-        city_names_l = (' '.join(city_names_l)).split(',') # 'Tel', 'Aviv' to 'Tel Aviv'
-        city_names_l = [popout(name, 0) if name[0] == ' ' else name for name in city_names_l]  # for remove additional space
-        return city_names_l
 
     def handle(self, *args, **options):
         if options['file']:
