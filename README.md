@@ -26,6 +26,64 @@ Add data to created database
 python manage.py loaddata fixtures/currency.json fixtures/country.json fixtures/city.json
 ```
 
+## CLI
+Command line use supported
+
+Help
+```bash
+python manage.py madgicx_geo
+```
+Will return help answer:
+```bash
+The madgicx_geo is a tool that helps users to get some insights about cities in the worldWhen the madgicx_geo gets a name of a city, it returns some interesting insights about it.
+ Please enter city name separated by commas(-n <names, >) or add a file(-f <file>)
+ Available city names: Kyiv, Vienna
+```
+
+Names(-n)
+```bash
+python manage.py madgicx_geo -n TeL aViV, kyIv, vieNna
+```
+Will return cities info:
+```bash
+Tel Aviv
+-------------
+ Invalid City Name
+-------------
+Kyiv
+-------------
+Country: ​ Ukraine
+Currency: UAH
+-------------
+Vienna
+-------------
+Country: ​ Austria
+Currency: EUR
+-------------
+```
+
+File names(-f)
+```bash
+python manage.py madgicx_geo -f cities.txt
+```
+Will return cities info:
+```bash
+Vienna
+-------------
+Country: ​ Austria
+Currency: EUR
+-------------
+Kyiv
+-------------
+Country: ​ Ukraine
+Currency: UAH
+-------------
+New york
+-------------
+ Invalid City Name
+-------------
+```
+
 ## Api
 main api schema - http://localhost:8000/api/
 The endpoint provides currency, country, city json lists
